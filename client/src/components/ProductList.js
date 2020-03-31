@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Product from './Product'
+import ProductModern from './ProductModern'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 
@@ -27,7 +27,7 @@ class ProductList extends Component {
         
             return (
                 <div>
-                    {productsToRender.map(product => <Product key={product.id} product={product}/>)}
+                    {productsToRender.map(product => <ProductModern key={product._id} product={product}/>)}
                 </div>
             )
             }}

@@ -3,12 +3,9 @@ import { Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
 
 const POST_MUTATION = gql`
-  mutation createProduct($name: String!, $price: String!, $stock: String!)) {
-    createProduct(name: $name, price: $price, stock:$stock) {
+  mutation CreateProduct($name: String, $price: Float, $stock: Int){
+    createProduct(name: $name, price: $price, stock: $stock) {
       _id
-      name
-      price
-      stock
     }
   }
 `
@@ -16,8 +13,8 @@ const POST_MUTATION = gql`
 class CreateProduct extends Component {
   state = {
     name: '',
-    price: '',
-    stock: ''
+    price: 0.0,
+    stock: 0
   }
 
   render() {
@@ -34,17 +31,19 @@ class CreateProduct extends Component {
           <input
             value={price}
             onChange={e => this.setState({ price: e.target.value })}
-            type="text"
+            type="number"
             placeholder="The price of the product"
           />
           <input
             value={stock}
             onChange={e => this.setState({ stock: e.target.value })}
-            type="text"
+            type="number"
             placeholder="The stock for the product"
           />
         </div>
-        <Mutation mutation={POST_MUTATION} variables={{ description, url }}>
+        <Mutation 
+          mutation={POST_MUTATION}
+          variables={{name, price, stock}}>
             {postMutation => <button onClick={postMutation}>Submit</button>}
         </Mutation>
       </div>
