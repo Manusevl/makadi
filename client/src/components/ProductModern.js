@@ -7,6 +7,9 @@ import Typography from '@material-ui/core/Typography';
 const styles = theme => ({
     root: {
         minWidth: 275,
+        maxWidth:275,
+        minHeight: 175,
+        maxHeight: 175,
       },
       bullet: {
         display: 'inline-block',
@@ -25,10 +28,16 @@ class ProductModern extends Component{
     render(){
         const { classes } = this.props;
         return (
-            <Card className={classes.root}>
+            <Card elevation="1" className={classes.root}>
                 <CardContent>
                 <Typography color="textSecondary" gutterBottom>
                     {this.props.product.name}
+                </Typography>
+                <Typography color="textSecondary" gutterBottom>
+                    {this.props.product.price} €
+                </Typography>
+                <Typography color="textSecondary" gutterBottom>
+                    {this.props.product.stock} pieces
                 </Typography>
                 </CardContent>
             </Card>

@@ -1,7 +1,20 @@
 import React, { Component } from 'react'
 import ProductModern from './ProductModern'
+import withStyles from "@material-ui/styles/withStyles";
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
+import Grid from '@material-ui/core/Grid';
+
+const styles = theme => ({
+    root: {
+        flexGrow: 1,
+      },
+      paper: {
+        padding: theme.spacing(2),
+        textAlign: 'center',
+        color: theme.palette.text.secondary,
+      },
+  });
 
 const FEED_QUERY = gql`
 {
@@ -16,7 +29,7 @@ const FEED_QUERY = gql`
 
 class ProductList extends Component {
   render() {
-
+    const { classes } = this.props;
     return (
         <Query query={FEED_QUERY}>
             {({ loading, error, data }) => {
@@ -26,8 +39,10 @@ class ProductList extends Component {
             const productsToRender = data.products
         
             return (
-                <div>
-                    {productsToRender.map(product => <ProductModern key={product._id} product={product}/>)}
+                <div className={classes.root}>
+                    <Grid container spacing={3}>
+                        {productsToRender.map(product => <Grid item xs={3}><ProductModern key={product._id} product={product}/></Grid>)}
+                    </Grid>
                 </div>
             )
             }}
@@ -36,4 +51,4 @@ class ProductList extends Component {
   }
 }
 
-export default ProductList
+export default withStyles(styles)(ProductList)
