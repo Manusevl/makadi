@@ -1,0 +1,25 @@
+.header {
+    background-color: #12395F;
+    text-align: center;
+    padding: 20px;
+    height: 10vh;
+    box-sizing: border-box;
+  }
+
+  .orderOverview {
+    background-color: #6B971C;
+    float: left;
+    width: 25vw;
+    height: 90vh;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .productList {
+    background-color: lightgrey;
+    float: left;
+    width: 75vw;
+    height: 90vh;
+    padding: 20px;
+    box-sizing: border-box;
+  }

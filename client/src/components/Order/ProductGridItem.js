@@ -1,0 +1,44 @@
+import React from 'react'
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
+import Badge from '@material-ui/core/Badge';
+import ButtonBase from '@material-ui/core/ButtonBase';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStylesBadge = makeStyles({
+    root: {
+      display: 'block',
+    },
+});
+
+const useStylesButton = makeStyles({
+    root: {
+      width: '100%',
+      display: 'block'
+    },
+});
+
+export default function ProductGridItem(props) {
+    const classesBadge = useStylesBadge();
+    const classesButton = useStylesButton();
+    return (
+        <Badge color="primary" className={classesBadge.root} badgeContent={2}>
+            <ButtonBase className={classesButton.root}>
+                <Card elevation={1}>
+                    <CardContent>
+                        <Typography color="textSecondary">
+                            {props.product.name}
+                        </Typography>
+                        <Typography color="textSecondary">
+                            {props.product.price} EUR
+                        </Typography>
+                        <Typography color="textSecondary">
+                            {props.product.stock} pieces
+                        </Typography>
+                    </CardContent>
+                </Card>
+            </ButtonBase>
+        </Badge>
+    )
+}
