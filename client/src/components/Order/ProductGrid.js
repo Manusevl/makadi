@@ -15,8 +15,15 @@ const GET_PRODUCTS = gql`
 }
 `
 
-export default function ProductGrid(props) {
+function getCurrentQuantity (currentOrder, productId){
+    const productInOrder = currentOrder.find(element => element.productId === productId)
+    const quantity = productInOrder ? productInOrder.quantity : 0
+    console.log(quantity)
+    return quantity
+}
 
+export default function ProductGrid(props) {
+    
     const { data, loading, error } = useQuery(GET_PRODUCTS);
 
     if (loading) return <p>Loading...</p>;
@@ -28,7 +35,15 @@ export default function ProductGrid(props) {
     return (
         <div>
             <Grid container alignContent="stretch" spacing={3}>
-                {productsToRender.map(product => <Grid key={product._id} item lg={3}><ProductGridItem key={product._id} product={product}/></Grid>)}
+                {productsToRender.map(product => 
+                    <Grid key={product._id} item lg={3}>
+                        <ProductGridItem 
+                            key={product._id} 
+                            product={product}
+                            timesInCart={getCurrentQuantity(props.currentOrder, product._id)}     
+                        />
+                    </Grid>
+                )}
             </Grid>
         </div>
     )

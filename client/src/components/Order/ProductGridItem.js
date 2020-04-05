@@ -23,7 +23,7 @@ export default function ProductGridItem(props) {
     const classesBadge = useStylesBadge();
     const classesButton = useStylesButton();
     return (
-        <Badge color="primary" className={classesBadge.root} badgeContent={2}>
+        <Badge color="primary" className={classesBadge.root} badgeContent={props.timesInCart}>
             <ButtonBase className={classesButton.root}>
                 <Card elevation={1}>
                     <CardContent>

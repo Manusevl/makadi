@@ -1,5 +1,5 @@
 import React from 'react'
-import ProductList from './ProductGrid'
+import ProductGrid from './ProductGrid'
 import OrderOverview from './OrderOverview'
 import Header from '../Common/Header/Header'
 import {useQuery} from "@apollo/react-hooks";
@@ -32,7 +32,7 @@ export default function Order() {
         <OrderOverview currentOrder={data.currentOrder.items}/>
       </div>
       <div className="productList">
-        <ProductList currentOrder={data.currentOrder.items}/>
+        <ProductGrid currentOrder={data.currentOrder.items}/>
       </div>
     </div>
   )     
