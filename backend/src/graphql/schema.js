@@ -1,27 +1,30 @@
-const { GraphQLSchema, GraphQLObjectType } = require('graphql');
-const { ProductsQuery } = require('./query/ProductsQuery');
-const {
-  CreateProductMutation,
-  UpdateProductMutation,
-  DeleteProductMutation
-} = require('./mutation/ProductsMutation');
+var { buildSchema } = require('graphql');
 
-const QueryType = new GraphQLObjectType({
-  name: 'Query',
-  fields: () => ({
-    products: ProductsQuery
-  })
-});
-
-const MutationType = new GraphQLObjectType({
-  name: 'Mutation',
-  fields: () => ({
-    createProduct: CreateProductMutation,
-    deleteProduct: DeleteProductMutation,
-    updateProduct: UpdateProductMutation
-  })
-});
-
-const schema = new GraphQLSchema({ query: QueryType, mutation: MutationType });
+// Construct a schema, using GraphQL schema language
+const schema = buildSchema(`
+    type Product {
+        _id: ID
+        name: String
+        price: Float
+        stock: Int
+    }
+    type Order {
+        _id: ID
+        items: [Product]
+    }
+    type Query {
+        products: [Product]
+        orders: [Order]
+    }
+    input OrderItemInput {
+        productId: ID
+        name: String
+        price: Float
+        quantity: Int
+    }
+    type Mutation {
+        createOrder(items: [OrderItemInput]): Order
+    }
+`);
 
 module.exports = schema;

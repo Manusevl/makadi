@@ -1,25 +1,40 @@
-import React, { Component } from 'react'
+import React from 'react'
 import ProductList from './ProductGrid'
 import OrderOverview from './OrderOverview'
 import Header from '../Common/Header/Header'
+import {useQuery} from "@apollo/react-hooks";
+import gql from "graphql-tag";
 import './Order.css'
 
-class Order extends Component {
-  render() {
-    return (
-      <div>
-        <div className="header">
-          <Header />
-        </div>
-        <div className="orderOverview">
-          <OrderOverview />
-        </div>
-        <div className="productList">
-          <ProductList />
-        </div>
-      </div>
-    )      
+const GET_CURRENT_ORDER = gql`
+  query {
+    currentOrder @client{
+      items {
+        productId
+        name
+        price
+        quantity
+      }
+    }
   }
+`;
+
+export default function Order() {
+
+  const { data } = useQuery(GET_CURRENT_ORDER);
+
+  return (
+    <div>
+      <div className="header">
+        <Header />
+      </div>
+      <div className="orderOverview">
+        <OrderOverview currentOrder={data.currentOrder.items}/>
+      </div>
+      <div className="productList">
+        <ProductList currentOrder={data.currentOrder.items}/>
+      </div>
+    </div>
+  )     
 }
 
-export default Order

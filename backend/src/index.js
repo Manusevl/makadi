@@ -1,6 +1,7 @@
 const express = require('express');
 const graphqlHTTP = require('express-graphql');
 const schema = require('./graphql/schema');
+const resolvers = require('./graphql/resolvers');
 const { setupDB } = require('./config/databaseConnection');
 const cors = require('cors');
 
@@ -14,7 +15,8 @@ app.use(express.static('public'))
 app.use(
     '/graphql',
     graphqlHTTP({
-        schema,
+        schema: schema,
+        rootValue: resolvers,
         graphiql: true,
         pretty: true
     })
