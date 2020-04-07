@@ -9,6 +9,10 @@ class ProductService {
     return this.ProductRepository.getAll();
   }
 
+  getProductById(_id) {
+    return this.ProductRepository.geById(_id);
+  }
+
 }
 
 module.exports = ProductService;

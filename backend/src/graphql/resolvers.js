@@ -7,6 +7,11 @@ const resolvers = {
         const products = await productService.getAllProducts();
         return products;
     },
+    product: async (queryVariables) => {
+        const productService = new ProductService();
+        const product = await productService.getProductById(queryVariables._id);
+        return product;
+    },
     orders: async () => {
         const orderService = new OrderService();
         const orders = await orderService.getAllOrders();

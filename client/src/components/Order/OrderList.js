@@ -1,14 +1,14 @@
 import React from 'react'
-import ProductListItem from './ProductListItem'
+import OrderListItem from './OrderListItem'
 import Grid from '@material-ui/core/Grid'
 
-export default function ProductList(props) {
+export default function OrderList(props) {
     return (
         <div>
             <Grid container alignItems="stretch" alignContent="stretch" direction="column" spacing={1}>
                 {props.currentOrder.map(orderItem => 
                     <Grid item key={orderItem.productId}>
-                        <ProductListItem key={orderItem.productId} orderItem={orderItem}/>
+                        <OrderListItem key={orderItem.productId} orderItem={orderItem}/>
                     </Grid>
                 )}
             </Grid>

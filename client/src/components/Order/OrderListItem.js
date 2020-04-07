@@ -5,7 +5,7 @@ import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Typography from '@material-ui/core/Typography';
 
-export default function ProductListItem(props) {
+export default function OrderListItem(props) {
     return (
         <Card elevation={1}>
             <CardHeader 

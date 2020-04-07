@@ -1,5 +1,5 @@
 import React from 'react'
-import ProductList from './ProductList'
+import OrderList from './OrderList'
 import OrderSummary from './OrderSummary'
 import OrderCommands from './OrderCommands'
 import Grid from '@material-ui/core/Grid'
@@ -11,7 +11,7 @@ export default function OrderOverview(props) {
   return (
     <Grid container direction="column" spacing={2}>
       <Grid item>
-        <ProductList currentOrder={props.currentOrder}/>
+        <OrderList currentOrder={props.currentOrder}/>
       </Grid>
       <Grid item>
         <OrderSummary total={total}/>

@@ -15,11 +15,11 @@ const schema = buildSchema(`
     type Query {
         products: [Product]
         orders: [Order]
+        product(_id: ID): Product
+        order(_id: ID!): Order
     }
     input OrderItemInput {
-        productId: ID
-        name: String
-        price: Float
+        _id: ID
         quantity: Int
     }
     type Mutation {
