@@ -6,7 +6,7 @@ import Grid from '@material-ui/core/Grid'
 
 export default function OrderOverview(props) {
 
-  const total = props.currentOrder.map(item => (item.price*item.quantity)).reduce((prev, next) => prev + next);
+  //const total = props.currentOrder.map(item => (item.price*item.quantity)).reduce((prev, next) => prev + next);
 
   return (
     <Grid container direction="column" spacing={2}>
@@ -14,7 +14,7 @@ export default function OrderOverview(props) {
         <OrderList currentOrder={props.currentOrder}/>
       </Grid>
       <Grid item>
-        <OrderSummary total={total}/>
+        <OrderSummary total={0}/>
       </Grid>
       <Grid item>
         <OrderCommands/>

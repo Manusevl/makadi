@@ -4,6 +4,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 
 export default function ProductGrid(props) {
+
     return (
         <Card elevation={1}>
             <CardContent>

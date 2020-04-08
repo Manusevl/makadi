@@ -5,6 +5,8 @@ import Typography from '@material-ui/core/Typography';
 import Badge from '@material-ui/core/Badge';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import { makeStyles } from '@material-ui/core/styles';
+import {useMutation} from "@apollo/react-hooks";
+import {ADD_PRODUCT_TO_ORDER} from "../../graphql/mutations"
 
 const useStylesBadge = makeStyles({
     root: {
@@ -22,9 +24,11 @@ const useStylesButton = makeStyles({
 export default function ProductGridItem(props) {
     const classesBadge = useStylesBadge();
     const classesButton = useStylesButton();
+    const [addProductToOrder] = useMutation(ADD_PRODUCT_TO_ORDER, { variables: { product: props.product } });
+    
     return (
-        <Badge color="primary" className={classesBadge.root} badgeContent={props.timesInCart}>
-            <ButtonBase className={classesButton.root}>
+        <Badge color="primary" className={classesBadge.root} badgeContent={props.product.timesInCart}>
+            <ButtonBase className={classesButton.root} onClick={addProductToOrder}>
                 <Card elevation={1}>
                     <CardContent>
                         <Typography color="textSecondary">

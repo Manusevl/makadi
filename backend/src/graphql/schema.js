@@ -10,16 +10,23 @@ const schema = buildSchema(`
     }
     type Order {
         _id: ID
-        items: [Product]
+        items: [OrderItem]
+    }
+    type OrderItem {
+        product: Product
+        quantity: Int
     }
     type Query {
         products: [Product]
         orders: [Order]
         product(_id: ID): Product
-        order(_id: ID!): Order
+        order(_id: ID): Order
+    }
+    input ProductInput {
+        _id: ID
     }
     input OrderItemInput {
-        _id: ID
+        product: ProductInput
         quantity: Int
     }
     type Mutation {

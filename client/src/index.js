@@ -20,12 +20,10 @@ cache.writeData({
       _id: "order1",
       items: [{
         __typename: 'Product',
-        productId: "5e80b0ba2b31292c606244f1",
-        name: "Semmel",
-        price: 2,
+        _id: "5e80b0ba2b31292c606244f1",
         quantity: 2
       }]
-    },
+    }
   }
 })
 
