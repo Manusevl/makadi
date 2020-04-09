@@ -35,7 +35,6 @@ export const resolvers = {
       const queryResult = cache.readQuery({
         query: GET_CURRENT_ORDER
       });
-      const id = getCacheKey({ __typename: 'Order', _id: "order1" })
       const productFound = queryResult.currentOrder.items.find((item) => item._id === product._id)
       if(productFound){
         var newData = queryResult.currentOrder.items.map(el => {
@@ -43,20 +42,12 @@ export const resolvers = {
              return Object.assign({}, el, {quantity:el.quantity+1})
           return el
         });
+        newData = Object.assign({}, newData);
       } else {
-        const newItem = {_id: product._id, quantity: 1}
+        const newItem = {_id: product._id, quantity: 1, __typename:"Product"}
         newData = [ ...queryResult.currentOrder.items, newItem];
       }
       console.log(newData);
-      // cache.writeData({ id,
-      //   data: {
-      //     currentOrder: {
-      //       __typename: 'Order',
-      //       _id:"order1",
-      //       items: newData
-      //     }
-      //   }
-      // })
       cache.writeQuery({ query: GET_CURRENT_ORDER,    
         data: {
             currentOrder: {
