@@ -12,6 +12,11 @@ const resolvers = {
         const product = await productService.getProductById(queryVariables._id);
         return product;
     },
+    createProduct: async (product) => {
+        const productService = new ProductService();
+        const newProduct = await productService.createProduct(product);
+        return newProduct;
+    },
     orders: async () => {
         const orderService = new OrderService();
         const orders = await orderService.getAllOrders();

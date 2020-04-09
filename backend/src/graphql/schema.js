@@ -31,6 +31,7 @@ const schema = buildSchema(`
     }
     type Mutation {
         createOrder(items: [OrderItemInput]): Order
+        createProduct(name: String, price: Float, stock: Int): Product
     }
 `);
 

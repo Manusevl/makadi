@@ -3,9 +3,8 @@ const MongoClient = require('mongodb').MongoClient;
 let mongoDB;
 
 const setupDB = callback => {
-  const uri = 'mongodb+srv://makadi:makadi@makadi-n26tm.mongodb.net/test?retryWrites=true&w=majority'
+  const uri = 'mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&ssl=false'
   
-
   MongoClient.connect(
     uri,
     { useNewUrlParser: true, useUnifiedTopology: true },

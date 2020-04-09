@@ -13,6 +13,10 @@ class ProductService {
     return this.ProductRepository.geById(_id);
   }
 
+  createProduct(opt) {
+    return this.ProductRepository.create(opt);
+  }
+
 }
 
 module.exports = ProductService;

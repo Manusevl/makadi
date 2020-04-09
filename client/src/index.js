@@ -20,7 +20,7 @@ cache.writeData({
       _id: "order1",
       items: [{
         __typename: 'Product',
-        _id: "5e80b0ba2b31292c606244f1",
+        _id: "5e8f5f4b2081ff4be8742670",
         quantity: 2
       }]
     }
