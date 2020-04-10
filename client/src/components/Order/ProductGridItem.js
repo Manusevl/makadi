@@ -7,6 +7,7 @@ import ButtonBase from '@material-ui/core/ButtonBase';
 import { makeStyles } from '@material-ui/core/styles';
 import {useMutation} from "@apollo/react-hooks";
 import {ADD_PRODUCT_TO_ORDER} from "../../graphql/mutations"
+import {GET_PRODUCTS} from "../../graphql/queries"
 
 const useStylesBadge = makeStyles({
     root: {
@@ -24,7 +25,10 @@ const useStylesButton = makeStyles({
 export default function ProductGridItem(props) {
     const classesBadge = useStylesBadge();
     const classesButton = useStylesButton();
-    const [addProductToOrder] = useMutation(ADD_PRODUCT_TO_ORDER, { variables: { product: props.product } });
+    const [addProductToOrder] = useMutation(ADD_PRODUCT_TO_ORDER, { 
+        variables: { product: props.product },
+        refetchQueries: [{query: GET_PRODUCTS}], 
+    });
     
     return (
         <Badge color="primary" className={classesBadge.root} badgeContent={props.product.timesInCart}>

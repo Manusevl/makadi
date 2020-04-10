@@ -31,7 +31,7 @@ export const resolvers = {
     }
   },
   Mutation: {
-    addProductToCurrentOrder: (_, {product}, { cache, getCacheKey }) => {
+    addProductToCurrentOrder: (_, {product}, { cache, getCacheKey}) => {
       const queryResult = cache.readQuery({
         query: GET_CURRENT_ORDER
       });
@@ -42,7 +42,6 @@ export const resolvers = {
              return Object.assign({}, el, {quantity:el.quantity+1})
           return el
         });
-        newData = Object.assign({}, newData);
       } else {
         const newItem = {_id: product._id, quantity: 1, __typename:"Product"}
         newData = [ ...queryResult.currentOrder.items, newItem];
