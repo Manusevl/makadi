@@ -39,7 +39,7 @@ export default function ProductGridItem(props) {
                             {props.product.name}
                         </Typography>
                         <Typography color="textSecondary">
-                            {props.product.price} EUR
+                            {props.product.price.toFixed(2)} EUR
                         </Typography>
                         <Typography color="textSecondary">
                             {props.product.stock} pieces

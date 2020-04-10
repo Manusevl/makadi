@@ -22,7 +22,7 @@ export default function OrderListItem(props) {
                 action={
                     <div>
                     <Typography align="right" variant="body1" display={"inline"}>
-                    <b>{data.product.price * data.product.timesInCart} EUR </b>
+                    <b>{(data.product.price * data.product.timesInCart).toFixed(2)} EUR </b>
                     </Typography>
                     <IconButton aria-label="settings">
                         <DeleteIcon />
@@ -38,7 +38,7 @@ export default function OrderListItem(props) {
                             {data.product.name}<b> </b>
                         </Typography>
                         <Typography align="right" variant="subtitle2" display={"inline"}>
-                            ({data.product.price} €)
+                            ({data.product.price.toFixed(2)} €)
                         </Typography>
                     </div>
                 }>
