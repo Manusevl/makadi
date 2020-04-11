@@ -4,6 +4,15 @@ import { useQuery } from "@apollo/react-hooks";
 import Grid from '@material-ui/core/Grid';
 import {GET_PRODUCTS} from "../../graphql/queries"
 
+function getProductQuantity(productId, items){
+    const productFound = items.find((el) => productId === el._id);
+    if(productFound) {
+        return productFound.quantity
+    } else {
+        return 0
+    }
+}
+
 export default function ProductGrid(props) {
     
     const { data, loading, error } = useQuery(GET_PRODUCTS);
@@ -22,6 +31,7 @@ export default function ProductGrid(props) {
                         <ProductGridItem 
                             key={product._id} 
                             product={product} 
+                            timesInCart={getProductQuantity(product._id, props.itemList)}
                         />
                     </Grid>
                 )}

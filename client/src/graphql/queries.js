@@ -8,7 +8,6 @@ query GetProducts {
         name
         price
         stock
-        timesInCart @client
     }
 }
 `;
@@ -35,7 +34,6 @@ query GetProduct($_id: ID) {
         name
         price
         stock
-        timesInCart @client
     }
 }
 `;
