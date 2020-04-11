@@ -24,6 +24,9 @@ const schema = buildSchema(`
     }
     input ProductInput {
         _id: ID
+        name: String
+        price: Float
+        stock: Int
     }
     input OrderItemInput {
         product: ProductInput

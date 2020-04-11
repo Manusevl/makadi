@@ -12,7 +12,7 @@ export default function addProductToCurrentOrderResolver(_, {product}, { cache }
         return el
       });
     } else {
-      const newItem = {_id: product._id, quantity: 1, __typename:"Product"}
+      const newItem = Object.assign({}, product, {quantity: 1})
       newData = [ ...currentOrder.items, newItem];
     }
     cache.writeQuery({ query: GET_CURRENT_ORDER,    

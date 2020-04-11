@@ -12,17 +12,17 @@ export default function Order() {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>ERROR</p>;
   if (!data) return <p>Not found</p>;
-
+  
   return (
     <div>
       <div className="header">
         <Header />
       </div>
       <div className="orderOverview">
-        <OrderOverview currentOrder={data.currentOrder.items}/>
+        <OrderOverview itemList={data.currentOrder.items}/>
       </div>
       <div className="productList">
-        <ProductGrid currentOrder={data.currentOrder.items}/>
+        <ProductGrid itemList={data.currentOrder.items}/>
       </div>
     </div>
   )     

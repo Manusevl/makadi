@@ -9,7 +9,7 @@ export default function ProductGrid(props) {
         <Card elevation={1}>
             <CardContent>
                 <Typography variant="body1" display={"inline"}>
-                    <b>{props.total} EUR </b>
+                    <b>{props.total.toFixed(2)} EUR </b>
                 </Typography>
             </CardContent>
         </Card>

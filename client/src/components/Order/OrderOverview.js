@@ -6,13 +6,20 @@ import Grid from '@material-ui/core/Grid'
 
 export default function OrderOverview(props) {
 
+  function calculateTotal(items){
+    const total = items.reduce((acc, act) => {
+        return acc + act.price * act.quantity
+    }, 0);
+    return total;
+  }
+
   return (
     <Grid container direction="column" spacing={2}>
       <Grid item>
-        <OrderList currentOrder={props.currentOrder}/>
+        <OrderList itemList={props.itemList}/>
       </Grid>
       <Grid item>
-        <OrderSummary total={0}/>
+        <OrderSummary total={calculateTotal(props.itemList)}/>
       </Grid>
       <Grid item>
         <OrderCommands/>

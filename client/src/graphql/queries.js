@@ -19,6 +19,9 @@ query GetCurrentOrder {
         _id
         items {
             _id
+            name
+            price
+            stock
             quantity
         }
     }
