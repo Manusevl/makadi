@@ -17,12 +17,8 @@ cache.writeData({
   data: {
     currentOrder: {
       __typename: 'Order',
-      _id: "order1",
-      items: [{
-        __typename: 'Product',
-        _id: "5e8f5f4b2081ff4be8742670",
-        quantity: 2
-      }]
+      _id: "currentOrder",
+      items: []
     }
   }
 })

@@ -1,5 +1,7 @@
 import gql from "graphql-tag";
-import { GET_CURRENT_ORDER } from "./queries";
+import addProductToCurrentOrderResolver from "./resolvers/mutations/addProductToCurrentOrderResolver"
+import removeProductFromCurrentOrderResolver from "./resolvers/mutations/removeProductFromCurrentOrderResolver"
+import timesInCartResolver from "./resolvers/queries/timesInCartResolver"
 
 
 export const typeDefs = gql`
@@ -9,6 +11,7 @@ export const typeDefs = gql`
 
   extend type Mutation {
     addProductToCurrentOrder(product: Product): Product
+    removeProductFromCurrentOrder(_id: ID): ID
   }
 
   extend type Product {
@@ -19,45 +22,11 @@ export const typeDefs = gql`
 
 export const resolvers = {
   Product: {
-    timesInCart: (product, _, { cache }) => {
-      const queryResult = cache.readQuery({
-        query: GET_CURRENT_ORDER
-      });
-      const productFound = queryResult.currentOrder.items.find((item) => item._id === product._id)
-      if (productFound){
-        return productFound.quantity;
-      }
-      return 0;
-    }
+    timesInCart: timesInCartResolver
   },
   Mutation: {
-    addProductToCurrentOrder: (_, {product}, { cache, getCacheKey}) => {
-      const queryResult = cache.readQuery({
-        query: GET_CURRENT_ORDER
-      });
-      const productFound = queryResult.currentOrder.items.find((item) => item._id === product._id)
-      if(productFound){
-        var newData = queryResult.currentOrder.items.map(el => {
-          if(el._id === product._id)
-             return Object.assign({}, el, {quantity:el.quantity+1})
-          return el
-        });
-      } else {
-        const newItem = {_id: product._id, quantity: 1, __typename:"Product"}
-        newData = [ ...queryResult.currentOrder.items, newItem];
-      }
-      console.log(newData);
-      cache.writeQuery({ query: GET_CURRENT_ORDER,    
-        data: {
-            currentOrder: {
-              __typename: 'Order',
-              _id:"order1",
-              items: newData
-            }
-          } 
-        }
-      )
-    },
+    addProductToCurrentOrder: addProductToCurrentOrderResolver,
+    removeProductFromCurrentOrder: removeProductFromCurrentOrderResolver
   },
 
 };

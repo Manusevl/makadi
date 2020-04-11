@@ -7,3 +7,11 @@ mutation AddProductToOrder($product: Product) {
     }
 }
 `;
+
+export const REMOVE_PRODUCT_FROM_ORDER = gql`
+mutation RemoveProductFromOrder($_id: ID) {
+    removeProductFromCurrentOrder(_id: $_id) @client {
+        _id
+    }
+}
+`;

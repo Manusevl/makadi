@@ -5,9 +5,17 @@ import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Typography from '@material-ui/core/Typography';
 import {useQuery} from "@apollo/react-hooks";
+import {useMutation} from "@apollo/react-hooks";
 import {GET_PRODUCT} from "../../graphql/queries"
+import {REMOVE_PRODUCT_FROM_ORDER} from "../../graphql/mutations"
+import {GET_PRODUCTS} from "../../graphql/queries"
 
 export default function OrderListItem(props) {
+
+    const [removeProductFromOrder] = useMutation(REMOVE_PRODUCT_FROM_ORDER, {
+        variables: {_id: props.orderItem._id},
+        refetchQueries: [{query: GET_PRODUCTS}]
+    });
 
     const { data, loading, error } = useQuery(GET_PRODUCT, {
         variables: { _id: props.orderItem._id },
@@ -24,7 +32,7 @@ export default function OrderListItem(props) {
                     <Typography align="right" variant="body1" display={"inline"}>
                     <b>{(data.product.price * data.product.timesInCart).toFixed(2)} EUR </b>
                     </Typography>
-                    <IconButton aria-label="settings">
+                    <IconButton aria-label="settings" onClick={removeProductFromOrder}>
                         <DeleteIcon />
                     </IconButton>
                     </div>
