@@ -13,6 +13,7 @@ const schema = buildSchema(`
         items: [OrderItem]
     }
     type OrderItem {
+        _id: ID
         product: Product
         quantity: Int
     }
@@ -23,7 +24,6 @@ const schema = buildSchema(`
         order(_id: ID): Order
     }
     input ProductInput {
-        _id: ID
         name: String
         price: Float
         stock: Int

@@ -1,33 +1,28 @@
 import { GET_CURRENT_ORDER } from "../../queries";
+import { v4 as uuidv4 } from 'uuid';
 
 export default function addProductToCurrentOrderResolver(_, {product}, { cache }) {
     const {currentOrder} = cache.readQuery({
       query: GET_CURRENT_ORDER
     });
     const productFound = currentOrder.items.find((item) => item.product._id === product._id)
+    var newItems;
     if(productFound){
-      var newData = currentOrder.items.map(el => {
+      newItems = currentOrder.items.map(el => {
         if(el.product._id === product._id)
            return Object.assign({}, el, {quantity:el.quantity+1})
         return el
       });
     } else {
-      const newProduct = Object.assign({}, product)
+      const clonedObject = Object.assign({}, product)
       const newItem = Object.assign({}, {
-        product: newProduct, 
+        _id: uuidv4(),
+        product: clonedObject, 
         quantity: 1,
         __typename: "OrderItem"
       })
-      newData = [ ...currentOrder.items, newItem];
+      newItems = [ ...currentOrder.items, newItem];
     }
-    cache.writeQuery({ query: GET_CURRENT_ORDER,    
-      data: {
-          currentOrder: {
-            __typename: 'Order',
-            _id:"currentOrder",
-            items: newData
-          }
-        } 
-      }
-    )
+    const newCurrentOrder = Object.assign({}, currentOrder, {items: newItems})
+    cache.writeQuery({ query: GET_CURRENT_ORDER, data: {currentOrder: newCurrentOrder}})
   }

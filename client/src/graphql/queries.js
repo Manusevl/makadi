@@ -17,6 +17,7 @@ query GetCurrentOrder {
     currentOrder @client {
         _id
         items {
+            _id
             product {
                 _id
                 name

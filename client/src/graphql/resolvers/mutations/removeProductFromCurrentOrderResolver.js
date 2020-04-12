@@ -7,14 +7,8 @@ export default function removeProductFromCurrentOrderResolver(_, {_id}, { cache 
     var newItems = currentOrder.items.filter((item) => {
       return item.product._id !== _id
     });
-    cache.writeQuery({ query: GET_CURRENT_ORDER,    
-      data: {
-          currentOrder: {
-            __typename: 'Order',
-            _id:"currentOrder",
-            items: newItems
-          }
-        } 
-      }
-    )
+    console.log(newItems)
+    const newCurrentOrder = Object.assign({}, currentOrder, {items: newItems})
+    console.log(newCurrentOrder)
+    cache.writeQuery({ query: GET_CURRENT_ORDER, data: {currentOrder: newCurrentOrder} })
   }
