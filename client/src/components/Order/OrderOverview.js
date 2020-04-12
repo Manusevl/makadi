@@ -22,7 +22,7 @@ export default function OrderOverview(props) {
         <OrderSummary total={calculateTotal(props.itemList)}/>
       </Grid>
       <Grid item>
-        <OrderCommands/>
+        <OrderCommands itemList={props.itemList}/>
       </Grid>
     </Grid>
   )

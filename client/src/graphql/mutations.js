@@ -15,3 +15,11 @@ mutation RemoveProductFromOrder($_id: ID) {
     }
 }
 `;
+
+export const CREATE_ORDER = gql`
+mutation CreateOrder($items: [OrderItemInput]) {
+    createOrder(items: $items) {
+        _id
+    }
+}
+`;
