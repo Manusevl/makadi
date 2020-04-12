@@ -15,7 +15,7 @@
     box-sizing: border-box;
   }
 
-  .productList {
+  .productGrid {
     background-color: lightgrey;
     float: left;
     width: 75vw;

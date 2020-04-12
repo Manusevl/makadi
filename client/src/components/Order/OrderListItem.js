@@ -10,16 +10,16 @@ import {REMOVE_PRODUCT_FROM_ORDER} from "../../graphql/mutations"
 export default function OrderListItem(props) {
 
     const [removeProductFromOrder] = useMutation(REMOVE_PRODUCT_FROM_ORDER, {
-        variables: {_id: props.orderItem._id}
+        variables: {_id: props.orderItem.product._id}
     });
-
+    
     return (
         <Card elevation={1}>
             <CardHeader 
                 action={
                     <div>
                     <Typography align="right" variant="body1" display={"inline"}>
-                    <b>{(props.orderItem.price * props.orderItem.quantity).toFixed(2)} EUR </b>
+                    <b>{(props.orderItem.product.price * props.orderItem.quantity).toFixed(2)} EUR </b>
                     </Typography>
                     <IconButton aria-label="settings" onClick={removeProductFromOrder}>
                         <DeleteIcon />
@@ -32,10 +32,10 @@ export default function OrderListItem(props) {
                         <b>{props.orderItem.quantity} x </b>
                         </Typography> 
                         <Typography variant="body1" display={"inline"}>
-                            {props.orderItem.name}<b> </b>
+                            {props.orderItem.product.name}<b> </b>
                         </Typography>
                         <Typography align="right" variant="subtitle2" display={"inline"}>
-                            ({props.orderItem.price.toFixed(2)} €)
+                            ({props.orderItem.product.price.toFixed(2)} €)
                         </Typography>
                     </div>
                 }>

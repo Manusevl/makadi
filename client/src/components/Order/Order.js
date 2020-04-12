@@ -21,7 +21,7 @@ export default function Order() {
       <div className="orderOverview">
         <OrderOverview itemList={data.currentOrder.items}/>
       </div>
-      <div className="productList">
+      <div className="productGrid">
         <ProductGrid itemList={data.currentOrder.items}/>
       </div>
     </div>

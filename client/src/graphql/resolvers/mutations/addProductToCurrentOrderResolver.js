@@ -4,15 +4,20 @@ export default function addProductToCurrentOrderResolver(_, {product}, { cache }
     const {currentOrder} = cache.readQuery({
       query: GET_CURRENT_ORDER
     });
-    const productFound = currentOrder.items.find((item) => item._id === product._id)
+    const productFound = currentOrder.items.find((item) => item.product._id === product._id)
     if(productFound){
       var newData = currentOrder.items.map(el => {
-        if(el._id === product._id)
+        if(el.product._id === product._id)
            return Object.assign({}, el, {quantity:el.quantity+1})
         return el
       });
     } else {
-      const newItem = Object.assign({}, product, {quantity: 1})
+      const newProduct = Object.assign({}, product)
+      const newItem = Object.assign({}, {
+        product: newProduct, 
+        quantity: 1,
+        __typename: "OrderItem"
+      })
       newData = [ ...currentOrder.items, newItem];
     }
     cache.writeQuery({ query: GET_CURRENT_ORDER,    

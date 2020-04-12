@@ -5,7 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import {GET_PRODUCTS} from "../../graphql/queries"
 
 function getProductQuantity(productId, items){
-    const productFound = items.find((el) => productId === el._id);
+    const productFound = items.find((el) => productId === el.product._id);
     if(productFound) {
         return productFound.quantity
     } else {
@@ -31,7 +31,7 @@ export default function ProductGrid(props) {
                         <ProductGridItem 
                             key={product._id} 
                             product={product} 
-                            timesInCart={getProductQuantity(product._id, props.itemList)}
+                            quantity={getProductQuantity(product._id, props.itemList)}
                         />
                     </Grid>
                 )}

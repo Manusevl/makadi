@@ -5,7 +5,7 @@ export default function removeProductFromCurrentOrderResolver(_, {_id}, { cache 
       query: GET_CURRENT_ORDER
     });
     var newItems = currentOrder.items.filter((item) => {
-      return item._id !== _id
+      return item.product._id !== _id
     });
     cache.writeQuery({ query: GET_CURRENT_ORDER,    
       data: {

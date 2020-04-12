@@ -8,8 +8,8 @@ export default function OrderList(props) {
         <div>
             <Grid container alignItems="stretch" alignContent="stretch" direction="column" spacing={1}>
                 {props.itemList.map(orderItem => 
-                    <Grid item key={orderItem._id}>
-                        <OrderListItem key={orderItem._id} orderItem={orderItem}/>
+                    <Grid item key={orderItem.product._id}>
+                        <OrderListItem key={orderItem.product._id} orderItem={orderItem}/>
                     </Grid>
                 )}
             </Grid>

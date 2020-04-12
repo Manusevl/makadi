@@ -17,10 +17,12 @@ query GetCurrentOrder {
     currentOrder @client {
         _id
         items {
-            _id
-            name
-            price
-            stock
+            product {
+                _id
+                name
+                price
+                stock
+            }
             quantity
         }
     }

@@ -29,7 +29,7 @@ export default function ProductGridItem(props) {
     });
     
     return (
-        <Badge color="primary" className={classesBadge.root} badgeContent={props.timesInCart}>
+        <Badge color="primary" className={classesBadge.root} badgeContent={props.quantity}>
             <ButtonBase className={classesButton.root} onClick={addProductToOrder}>
                 <Card elevation={1}>
                     <CardContent>

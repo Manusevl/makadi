@@ -8,7 +8,7 @@ export default function OrderOverview(props) {
 
   function calculateTotal(items){
     const total = items.reduce((acc, act) => {
-        return acc + act.price * act.quantity
+        return acc + act.product.price * act.quantity
     }, 0);
     return total;
   }
