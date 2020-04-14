@@ -9,6 +9,10 @@ class OrderService {
     return this.OrderRepository.getAll();
   }
 
+  getOrderById(_id) {
+    return this.OrderRepository.geById(_id);
+  }
+
   createOrder(opt) {
     return this.OrderRepository.create(opt);
   }

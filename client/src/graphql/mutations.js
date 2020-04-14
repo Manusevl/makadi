@@ -23,3 +23,11 @@ mutation CreateOrder($items: [OrderItemInput]) {
     }
 }
 `;
+
+export const CHANGE_SELECTED_ORDER = gql`
+mutation ChangeSelectedOrder($_id: ID) {
+    changeSelectedOrderHistory(_id: $_id) @client {
+        _id
+    }
+}
+`;

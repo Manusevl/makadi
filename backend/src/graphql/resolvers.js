@@ -22,6 +22,11 @@ const resolvers = {
         const orders = await orderService.getAllOrders();
         return orders;
     },
+    order: async (queryVariables) => {
+        const orderService = new OrderService();
+        const order = await orderService.getOrderById(queryVariables._id);
+        return order;
+    },
     createOrder: async (order) => {
         const orderService = new OrderService();
         const newOrder = await orderService.createOrder(order);
