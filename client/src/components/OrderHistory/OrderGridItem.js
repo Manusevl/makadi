@@ -25,7 +25,7 @@ export default function OrderGridItem(props) {
             <Card elevation={1}>
                 <CardContent>
                     <Typography color="textSecondary">
-                        {props.total}
+                        {props.total.toFixed(2)} €
                     </Typography>
                 </CardContent>
             </Card>

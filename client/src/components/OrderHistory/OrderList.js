@@ -11,7 +11,7 @@ export default function OrderList(props) {
     });
 
     if (loading) return <p>Loading...</p>;
-    if (error) return <p>ERROR</p>;
+    if (error) return <p>Select an order</p>;
     if (!data) return <p>Not found</p>;
 
     return (
