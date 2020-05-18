@@ -1,0 +1,21 @@
+.header {
+    background-color: #12395F;
+    height: 10vh;
+    box-sizing: border-box;
+  }
+
+.configuration {
+    background-color: rgb(90, 157, 201);
+    float: left;
+    width: 25vw;
+    height: 90vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.configuration .MuiSlider-thumb {
+    width: 24px;
+    height: 24px;
+    margin-top: -12px;
+    background-color: rgb(85, 219, 114);
+}
