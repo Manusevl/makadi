@@ -1,3 +1,27 @@
+.header {
+    background-color: #12395F;
+    height: 10vh;
+    box-sizing: border-box;
+}
+
+.orderOverview {
+    background-color: #6B971C;
+    float: left;
+    width: 25vw;
+    height: 90vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.orderGrid {
+    background-color: lightgrey;
+    float: left;
+    width: 75vw;
+    height: 90vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
 .logo{
     max-width: 230px;
     float: right;

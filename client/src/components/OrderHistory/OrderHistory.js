@@ -2,7 +2,7 @@ import React from 'react'
 import OrderGrid from './OrderGrid'
 import OrderOverview from './OrderOverview'
 import Header from '../Common/Header/Header'
-import './OrderHistory.css'
+import '../Common/Header/Header.css'
 
 export default function OrderHistory() {
   

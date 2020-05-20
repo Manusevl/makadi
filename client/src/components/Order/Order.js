@@ -4,7 +4,7 @@ import OrderOverview from './OrderOverview'
 import Header from '../Common/Header/Header'
 import {useQuery} from "@apollo/react-hooks";
 import {GET_CURRENT_ORDER} from "../../graphql/queries"
-import './Order.css'
+import '../Common/Header/Header.css'
 
 export default function Order() {
 
