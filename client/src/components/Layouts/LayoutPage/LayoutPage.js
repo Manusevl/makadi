@@ -2,7 +2,6 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import Hidden from '@material-ui/core/Hidden'
-import Header from '../../Common/Header/Header'
 
 const useStyles = makeStyles(() => ({
     header: {
@@ -15,10 +14,16 @@ const useStyles = makeStyles(() => ({
         width: '100%',
         backgroundColor: '#6B971C;'
     },
-    rightPanel: {
+    centerPanel: {
         height: '90%',
         width: '100%',
         backgroundColor: 'lightgrey'
+    },
+    rightPanel: {
+        height: '90%',
+        width: '100%',
+        backgroundColor: 'whitesmoke',
+        padding: 5
     },
     appContainer: {
         height:'100%',
@@ -27,18 +32,23 @@ const useStyles = makeStyles(() => ({
 
 }));
 
-export default function Layout(){
+export default function Layout(props){
     const classes = useStyles();
     return (
-        <Grid className={classes.appContainer} container spacing={0}>
-            <Grid className={classes.header} item xs={12}>
-                <Header/>
+        <Grid container className={classes.appContainer} spacing={0}>
+            <Grid item className={classes.header} xs={12}>
+                {props.header}
             </Grid>
             <Hidden smDown>
-                <Grid item className={classes.leftPanel} xs={2}>
+                <Grid item className={classes.leftPanel} xs={3}>
+                    {props.leftPanel}
                 </Grid>
             </Hidden>
-            <Grid className={classes.rightPanel} item xs={12} sm={10}>
+            <Grid item className={classes.centerPanel} xs={12} sm={8}>
+                {props.centerPanel}
+            </Grid>
+            <Grid item className={classes.rightPanel} xs={12} sm={1}>
+                {props.rightPanel}
             </Grid>
         </Grid>
     )

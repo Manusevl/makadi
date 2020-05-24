@@ -1,10 +1,11 @@
 import React from 'react'
-import ProductGrid from './ProductGrid'
-import OrderOverview from './OrderOverview'
+import LayoutPage from '../Layouts/LayoutPage/LayoutPage'
+import ProductGrid from './ProductGrid/ProductGrid'
+import OrderOverview from './OrderOverview/OrderOverview'
+import CategorySelector from './ProductGrid/CategorySelector'
 import Header from '../Common/Header/Header'
 import {useQuery} from "@apollo/react-hooks";
 import {GET_CURRENT_ORDER} from "../../graphql/queries"
-import '../Common/Header/Header.css'
 
 export default function Order() {
 
@@ -14,17 +15,12 @@ export default function Order() {
   if (!data) return <p>Not found</p>;
   
   return (
-    <div>
-      <div className="header">
-        <Header />
-      </div>
-      <div className="orderOverview">
-        <OrderOverview itemList={data.currentOrder.items}/>
-      </div>
-      <div className="productGrid">
-        <ProductGrid itemList={data.currentOrder.items}/>
-      </div>
-    </div>
+    <LayoutPage
+      header={<Header/>}
+      leftPanel={<OrderOverview itemList={data.currentOrder.items}/>}
+      centerPanel={<ProductGrid itemList={data.currentOrder.items}/>}
+      rightPanel={<CategorySelector/>}
+    />
   )     
 }
 
