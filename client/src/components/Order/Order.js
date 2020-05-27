@@ -2,7 +2,7 @@ import React from 'react'
 import LayoutPage from '../Layouts/LayoutPage/LayoutPage'
 import ProductGrid from './ProductGrid/ProductGrid'
 import OrderOverview from './OrderOverview/OrderOverview'
-import CategorySelector from './ProductGrid/CategorySelector'
+import CategorySelector from './CategorySelector/CategorySelector'
 import Header from '../Common/Header/Header'
 import {useQuery} from "@apollo/react-hooks";
 import {GET_CURRENT_ORDER} from "../../graphql/queries"
