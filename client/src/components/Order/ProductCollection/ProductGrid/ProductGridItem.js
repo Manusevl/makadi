@@ -7,7 +7,7 @@ import Badge from '@material-ui/core/Badge'
 import ButtonBase from '@material-ui/core/ButtonBase'
 import { makeStyles } from '@material-ui/core/styles'
 import {useMutation} from "@apollo/react-hooks"
-import {ADD_PRODUCT_TO_ORDER} from "../../../graphql/mutations"
+import {ADD_PRODUCT_TO_ORDER} from "../../../../graphql/mutations"
 
 const useStyles = makeStyles({
     badge: {

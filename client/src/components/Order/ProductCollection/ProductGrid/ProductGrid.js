@@ -3,7 +3,7 @@ import ProductGridItem from './ProductGridItem'
 import { makeStyles } from '@material-ui/core/styles'
 import { useQuery } from "@apollo/react-hooks"
 import Grid from '@material-ui/core/Grid'
-import {GET_PRODUCTS} from "../../../graphql/queries"
+import {GET_PRODUCTS} from "../../../../graphql/queries"
 
 const useStyles = makeStyles({
     productGrid: {
