@@ -1,5 +1,5 @@
 {"_id":{"$oid":"5ed28878fe8432438cdb1e42"},"name":"Favorites"}
 {"_id":{"$oid":"5ed2887ffe8432438cdb1e43"},"name":"Bread"}
-{"_id":{"$oid":"5ed28889fe8432438cdb1e44"},"name":"Fruits"}
+{"_id":{"$oid":"5ed28889fe8432438cdb1e44"},"name":"Fresh"}
 {"_id":{"$oid":"5ed28890fe8432438cdb1e45"},"name":"Dairy"}
 {"_id":{"$oid":"5ed28899fe8432438cdb1e46"},"name":"Sweets"}
