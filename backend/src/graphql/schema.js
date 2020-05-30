@@ -17,9 +17,14 @@ const schema = buildSchema(`
         product: Product
         quantity: Int
     }
+    type Category {
+        _id: ID
+        name: String
+    }
     type Query {
         products: [Product]
         orders: [Order]
+        categories: [Category]
         product(_id: ID): Product
         order(_id: ID): Order
     }
@@ -36,6 +41,7 @@ const schema = buildSchema(`
     type Mutation {
         createOrder(items: [OrderItemInput]): Order
         createProduct(name: String, price: Float, stock: Int): Product
+        createCategory(name: String): Category
     }
 `);
 

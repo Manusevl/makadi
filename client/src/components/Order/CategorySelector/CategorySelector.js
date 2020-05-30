@@ -1,6 +1,8 @@
 import React from 'react'
 import Button from '@material-ui/core/Button'
 import { makeStyles } from '@material-ui/core/styles'
+import { useQuery } from "@apollo/react-hooks"
+import {GET_CATEGORIES} from "../../../graphql/queries"
 
 const useStyles = makeStyles({
     category: {
@@ -13,23 +15,19 @@ const useStyles = makeStyles({
 export default function CategorySelector(props) {
     const classes = useStyles();
 
+    const { data, loading, error } = useQuery(GET_CATEGORIES);
+
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>ERROR</p>;
+    if (!data) return <p>Not found</p>;
+
+    const categoriesToRender = data.categories;
+
     return (
         <div>
-            <Button fullWidth={true} className={classes.category}>
-                Favorites
-            </Button>
-            <Button fullWidth={true} className={classes.category}>
-                Bread
-            </Button>
-            <Button fullWidth={true} className={classes.category}>
-                Fruits
-            </Button>
-            <Button fullWidth={true} className={classes.category}>
-                Dairy
-            </Button>
-            <Button fullWidth={true} className={classes.category}>
-                Sweets
-            </Button>
+            {categoriesToRender.map(category => 
+                <Button fullWidth={true} className={classes.category}>{category.name}</Button>
+            )}
         </div>
     )
   }

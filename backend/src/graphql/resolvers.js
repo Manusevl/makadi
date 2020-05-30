@@ -1,5 +1,6 @@
 const ProductService = require('../services/ProductService');
 const OrderService = require('../services/OrderService');
+const CategoryService = require('../services/CategoryService');
 
 const resolvers = {
     products: async () => {
@@ -31,7 +32,17 @@ const resolvers = {
         const orderService = new OrderService();
         const newOrder = await orderService.createOrder(order);
         return newOrder;
-    }
+    },
+    categories: async () => {
+        const categoryService = new CategoryService();
+        const categories = await categoryService.getAllCategories();
+        return categories;
+    },
+    createCategory: async (category) => {
+        const categoryService = new CategoryService();
+        const newCategory = await categoryService.createCategory(category);
+        return newCategory;
+    },
   };
 
 module.exports = resolvers;

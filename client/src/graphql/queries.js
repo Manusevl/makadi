@@ -12,6 +12,15 @@ query GetProducts {
 }
 `;
 
+export const GET_CATEGORIES = gql`
+query GetCategories {
+    categories {
+        _id
+        name
+    }
+}
+`;
+
 export const GET_ORDERS = gql`
 query GetOrders {
     orders {
