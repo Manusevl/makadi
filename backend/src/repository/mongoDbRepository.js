@@ -17,6 +17,17 @@ class MongoDbRepo {
     });
   }
 
+  getByCategory(category) {
+    return new Promise((resolve, reject) => {
+      this.collection.find({ categories: ObjectId(category) }).toArray((err, data) => {
+        if (err) {
+          reject(err);
+        }
+        resolve(data);
+      });
+    });
+  }
+
   geById(_id) {
     return new Promise((resolve, reject) => {
       this.collection.findOne({ _id: ObjectId(_id) }, (err, data) => {

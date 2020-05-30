@@ -12,6 +12,17 @@ query GetProducts {
 }
 `;
 
+export const GET_PRODUCTS_FROM_CATEGORY = gql`
+query GetProductsFromCategory($category: ID) {
+    productsFromCategory(category: $category) {
+        _id
+        name
+        price
+        stock
+    }
+}
+`;
+
 export const GET_CATEGORIES = gql`
 query GetCategories {
     categories {
@@ -60,6 +71,13 @@ query GetCurrentOrderSelectedOrder {
     selectedOrderHistory @client
 }
 `;
+
+export const GET_CURRENT_SELECTED_CATEGORY = gql`
+query GetCurrentOrderSelectedCategory {
+    selectedCategory @client
+}
+`;
+
 
 export const GET_PRODUCT = gql`
 query GetProduct($_id: ID) {

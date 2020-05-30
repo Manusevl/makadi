@@ -9,6 +9,10 @@ class ProductService {
     return this.ProductRepository.getAll();
   }
 
+  getAllProductsFromCategory(category) {
+    return this.ProductRepository.getByCategory(category);
+  }
+
   getProductById(_id) {
     return this.ProductRepository.geById(_id);
   }

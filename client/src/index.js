@@ -22,7 +22,8 @@ cache.writeData({
       _id: uuidv4(),
       items: []
     },
-    selectedOrderHistory: ""
+    selectedOrderHistory: "",
+    selectedCategory: "5ed28878fe8432438cdb1e42"
   }
 })
 

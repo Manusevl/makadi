@@ -8,6 +8,7 @@ export const typeDefs = gql`
   extend type Query {
     currentOrder: Order
     selectedOrderHistory: ID
+    selectedCategory: ID
   }
 
   extend type Mutation {

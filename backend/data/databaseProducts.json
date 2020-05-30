@@ -1,7 +1,7 @@
-{"_id":{"$oid":"5e9185786b62024fe883a15c"},"name":"Semmel","price":{"$numberDouble":"0.2"},"stock":{"$numberInt":"100"},"categories":["5ed2887ffe8432438cdb1e42","5ed2887ffe8432438cdb1e43"]}
-{"_id":{"$oid":"5e9185896b62024fe883a15d"},"name":"Baguette","price":{"$numberDouble":"1.2"},"stock":{"$numberInt":"100"} ,"categories":["5ed2887ffe8432438cdb1e42","5ed2887ffe8432438cdb1e43"]}
-{"_id":{"$oid":"5e9185966b62024fe883a15e"},"name":"Cheese","price":{"$numberDouble":"2.5"},"stock":{"$numberInt":"20"},"categories":["5ed2887ffe8432438cdb1e42","5ed28890fe8432438cdb1e45"]}
-{"_id":{"$oid":"5e9185a76b62024fe883a15f"},"name":"Milk","price":{"$numberDouble":"1.35"},"stock":{"$numberInt":"30"},"categories":["5ed2887ffe8432438cdb1e42","5ed28890fe8432438cdb1e45"]}
-{"_id":{"$oid":"5e9185bb6b62024fe883a160"},"name":"Tomatoes","price":{"$numberDouble":"2.45"},"stock":{"$numberInt":"110"},"categories":["5ed2887ffe8432438cdb1e42","5ed28889fe8432438cdb1e44"]}
-{"_id":{"$oid":"5e9185cb6b62024fe883a161"},"name":"Cucumber","price":{"$numberDouble":"0.85"},"stock":{"$numberInt":"19"},"categories":["5ed2887ffe8432438cdb1e42","5ed28889fe8432438cdb1e44"]}
-{"_id":{"$oid":"5e9185da6b62024fe883a162"},"name":"Mango","price":{"$numberDouble":"1.95"},"stock":{"$numberInt":"10"},"categories":["5ed2887ffe8432438cdb1e42","5ed28889fe8432438cdb1e44"]}
+{"_id":{"$oid":"5e9185786b62024fe883a15c"},"name":"Semmel","price":{"$numberDouble":"0.2"},"stock":{"$numberInt":"100"},"categories":[{"$oid":"5ed28878fe8432438cdb1e42"},{"$oid":"5ed2887ffe8432438cdb1e43"}]}
+{"_id":{"$oid":"5e9185896b62024fe883a15d"},"name":"Baguette","price":{"$numberDouble":"1.2"},"stock":{"$numberInt":"100"},"categories":[{"$oid":"5ed28878fe8432438cdb1e42"},{"$oid":"5ed2887ffe8432438cdb1e43"}]}
+{"_id":{"$oid":"5e9185966b62024fe883a15e"},"name":"Cheese","price":{"$numberDouble":"2.5"},"stock":{"$numberInt":"20"},"categories":[{"$oid":"5ed28878fe8432438cdb1e42"},{"$oid":"5ed28890fe8432438cdb1e45"}]}
+{"_id":{"$oid":"5e9185a76b62024fe883a15f"},"name":"Milk","price":{"$numberDouble":"1.35"},"stock":{"$numberInt":"30"},"categories":[{"$oid":"5ed28878fe8432438cdb1e42"},{"$oid":"5ed28890fe8432438cdb1e45"}]}
+{"_id":{"$oid":"5e9185bb6b62024fe883a160"},"name":"Tomatoes","price":{"$numberDouble":"2.45"},"stock":{"$numberInt":"110"},"categories":[{"$oid":"5ed28878fe8432438cdb1e42"},{"$oid":"5ed28889fe8432438cdb1e44"}]}
+{"_id":{"$oid":"5e9185cb6b62024fe883a161"},"name":"Cucumber","price":{"$numberDouble":"0.85"},"stock":{"$numberInt":"19"},"categories":[{"$oid":"5ed28878fe8432438cdb1e42"},{"$oid":"5ed28889fe8432438cdb1e44"}]}
+{"_id":{"$oid":"5e9185da6b62024fe883a162"},"name":"Mango","price":{"$numberDouble":"1.95"},"stock":{"$numberInt":"10"},"categories":[{"$oid":"5ed28878fe8432438cdb1e42"},{"$oid":"5ed28889fe8432438cdb1e44"}]}

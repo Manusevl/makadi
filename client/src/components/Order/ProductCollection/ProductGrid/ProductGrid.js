@@ -3,7 +3,7 @@ import ProductGridItem from './ProductGridItem'
 import { makeStyles } from '@material-ui/core/styles'
 import { useQuery } from "@apollo/react-hooks"
 import Grid from '@material-ui/core/Grid'
-import {GET_PRODUCTS} from "../../../../graphql/queries"
+import {GET_PRODUCTS_FROM_CATEGORY, GET_CURRENT_SELECTED_CATEGORY} from "../../../../graphql/queries"
 
 const useStyles = makeStyles({
     productGrid: {
@@ -23,14 +23,16 @@ function getProductQuantity(productId, items){
 
 export default function ProductGrid(props) {
     const classes = useStyles();
-
-    const { data, loading, error } = useQuery(GET_PRODUCTS);
+    const {data: selectedCategory } = useQuery(GET_CURRENT_SELECTED_CATEGORY);
+    const {data, loading, error } = useQuery(GET_PRODUCTS_FROM_CATEGORY, {
+        variables: {category: selectedCategory.selectedCategory}
+    }, selectedCategory === undefined);
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>ERROR</p>;
     if (!data) return <p>Not found</p>;
-
-    const productsToRender = data.products;
+    
+    const productsToRender = data.productsFromCategory;
 
     return (
         <Grid className={classes.productGrid} container spacing={5}>

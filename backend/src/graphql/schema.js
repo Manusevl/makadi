@@ -7,6 +7,7 @@ const schema = buildSchema(`
         name: String
         price: Float
         stock: Int
+        categories: [ID]
     }
     type Order {
         _id: ID
@@ -23,6 +24,7 @@ const schema = buildSchema(`
     }
     type Query {
         products: [Product]
+        productsFromCategory(category: ID): [Product]
         orders: [Order]
         categories: [Category]
         product(_id: ID): Product
