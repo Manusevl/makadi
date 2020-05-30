@@ -1,6 +1,6 @@
 import React from 'react'
 import LayoutPage from '../Layouts/LayoutPage/LayoutPage'
-import ProductGridGeneral from './ProductCollection/ProductCollection'
+import ProductCollection from './ProductCollection/ProductCollection'
 import OrderOverview from './OrderOverview/OrderOverview'
 import CategorySelector from './CategorySelector/CategorySelector'
 import Header from '../Common/Header/Header'
@@ -18,7 +18,7 @@ export default function Order() {
     <LayoutPage
       header={<Header/>}
       leftPanel={<OrderOverview itemList={data.currentOrder.items}/>}
-      centerPanel={<ProductGridGeneral itemList={data.currentOrder.items}/>}
+      centerPanel={<ProductCollection itemList={data.currentOrder.items}/>}
       rightPanel={<CategorySelector/>}
     />
   )     

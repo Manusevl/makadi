@@ -1,15 +1,15 @@
 import React from 'react'
-import LayoutProductGrid from '../../Layouts/LayoutProductCollection/LayoutProductCollection'
+import LayoutProductCollection from '../../Layouts/LayoutProductCollection/LayoutProductCollection'
 import ProductGrid from './ProductGrid/ProductGrid'
-import TextField from '@material-ui/core/TextField'
+import SearchBar from './SearchBar/SearchBar'
 
 export default function ProductCollection(props) {
   
   return (
-    <LayoutProductGrid
+    <LayoutProductCollection
       productArea={<ProductGrid itemList={props.itemList}/>}
-      searchArea={<TextField id="standard-basic" margin="dense" variant="filled" fullWidth={true} label="Search" />}
+      searchArea={<SearchBar/>}
     />
-  )     
+  )
 }
 
