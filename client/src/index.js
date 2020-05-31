@@ -23,7 +23,8 @@ cache.writeData({
       items: []
     },
     selectedOrderHistory: "",
-    selectedCategory: "5ed28878fe8432438cdb1e42"
+    selectedCategory: "5ed28878fe8432438cdb1e42",
+    searchString: ""
   }
 })
 

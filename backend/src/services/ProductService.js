@@ -9,6 +9,10 @@ class ProductService {
     return this.ProductRepository.getAll();
   }
 
+  getProductContainingString(searchString) {
+    return this.ProductRepository.getContainingString(searchString);
+  }
+
   getAllProductsFromCategory(category) {
     return this.ProductRepository.getByCategory(category);
   }

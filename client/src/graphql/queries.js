@@ -23,6 +23,17 @@ query GetProductsFromCategory($category: ID) {
 }
 `;
 
+export const GET_PRODUCTS_CONTAINING_STRING = gql`
+query GetProductsContainingString($searchString: String) {
+    productsContainingString(searchString: $searchString) {
+        _id
+        name
+        price
+        stock
+    }
+}
+`;
+
 export const GET_CATEGORIES = gql`
 query GetCategories {
     categories {
@@ -78,6 +89,11 @@ query GetCurrentOrderSelectedCategory {
 }
 `;
 
+export const GET_SEARCH_STRING = gql`
+query GetSearchString {
+    searchString @client
+}
+`;
 
 export const GET_PRODUCT = gql`
 query GetProduct($_id: ID) {

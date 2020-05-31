@@ -13,6 +13,11 @@ const resolvers = {
         const products = await productService.getAllProductsFromCategory(queryVariables.category);
         return products;
     },
+    productsContainingString: async (queryVariables) => {
+        const productService = new ProductService();
+        const products = await productService.getProductContainingString(queryVariables.searchString);
+        return products;
+    },
     product: async (queryVariables) => {
         const productService = new ProductService();
         const product = await productService.getProductById(queryVariables._id);

@@ -1,7 +1,17 @@
 import React from 'react'
+import { useApolloClient } from "@apollo/react-hooks"
 import { fade, makeStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search'
 import InputBase from '@material-ui/core/InputBase'
+
+function setSearchString (client, value) {
+    console.log(value);
+    client.writeData({
+        data: {
+          searchString: value
+        }
+      })
+}
 
 const useStyles = makeStyles((theme) => ({
     search: {
@@ -36,6 +46,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 export default function SearchBar(props) {
+    const client = useApolloClient();
     const classes = useStyles();
     return (
         <div className={classes.search}>
@@ -49,6 +60,7 @@ export default function SearchBar(props) {
                     input: classes.inputInput,
                 }}
                 inputProps={{ 'aria-label': 'search' }}
+                onChange={(event) => setSearchString(client, event.target.value)}
             />
         </div>
     )

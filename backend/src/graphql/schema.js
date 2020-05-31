@@ -25,6 +25,7 @@ const schema = buildSchema(`
     type Query {
         products: [Product]
         productsFromCategory(category: ID): [Product]
+        productsContainingString(searchString: String): [Product]
         orders: [Order]
         categories: [Category]
         product(_id: ID): Product
