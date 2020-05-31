@@ -13,7 +13,9 @@ function calculateTotal(items){
 
 export default function OrderGrid() {
     
-    const { data, loading, error } = useQuery(GET_ORDERS);
+    const { data, loading, error } = useQuery(GET_ORDERS, {
+        fetchPolicy: "network-only"
+    });
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>ERROR</p>;
