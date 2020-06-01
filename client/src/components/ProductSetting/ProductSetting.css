@@ -1,0 +1,37 @@
+.product-settings {
+    background-color: rgb(249,249,249);
+    float: left;
+    width: 22vw;
+    height: 90vh;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style: solid;
+    border-width: 0px 1px 0px 0px;
+    border-color: #e1e1e1;
+}
+
+.no-selection {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 500;
+    font-size: x-large;
+}
+
+.product-overview {
+    /* background-color: rgb(249,249,249);
+    height: 90vh;
+    width: 42vw; */
+}
+
+.product-category {
+    background-color: rgb(249,249,249);
+    float: right;
+    width: 10vw;
+    height: 90vh;
+    border-style: solid;
+    border-width: 0px 0px 0px 1px;
+    border-color: #e1e1e1;
+}

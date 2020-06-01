@@ -35,7 +35,7 @@ export default function Header(props) {
   const classesIconShoppingCart = useStylesIconShoppinCart()
     return (
       <div>
-        <IconButton className={classesIconSettings.root} component={Link} to="/configuration" aria-label="upload picture">
+        <IconButton className={classesIconSettings.root} component={Link} to="/productsetting" aria-label="upload picture">
           <SettingsIcon  fontSize="large"/>
         </IconButton>
         <IconButton className={classesIconHistory.root} component={Link} to="/orders" aria-label="upload picture">
