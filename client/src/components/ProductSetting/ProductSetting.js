@@ -1,28 +1,20 @@
 import React from 'react'
+import LayoutPage from '../Layouts/LayoutPage/LayoutPage'
 import Header from '../Common/Header/Header'
 import NoSelection from './common/NoSelection'
-import ProductOverview from './ProductOverview/ProductOverview'
+import ProductCollection from '../Order/ProductCollection/ProductCollection'
+import LayoutCategories from '../Layouts/LayoutCategories/LayoutCategories'
+import CategoryList from '../Common/CategoryList/CategoryList'
 import CreateNewProduct from './Dialog/CreateNewProduct'
-import './ProductSetting.css'
 
 export default function ProductSetting() {
   
   return (
-    <div>
-      <div className="header">
-        <Header />
-      </div>
-      <div className="product-setting-wrapper">
-        <div className="product-settings">
-          <NoSelection/>
-        </div>
-        <div className="product-overview">
-          <ProductOverview/>
-        </div>
-        <div className="product-category">
-          <CreateNewProduct/>
-        </div>
-      </div> 
-    </div>
+    <LayoutPage 
+      header={<Header />}
+      leftPanel={<NoSelection/>}
+      centerPanel={<ProductCollection itemList={[]}/>}
+      rightPanel={<LayoutCategories categoriesArea={<CategoryList/>} actionsArea={<CreateNewProduct/>}/> }
+      />
   )     
 }

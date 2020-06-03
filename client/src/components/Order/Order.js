@@ -2,7 +2,7 @@ import React from 'react'
 import LayoutPage from '../Layouts/LayoutPage/LayoutPage'
 import ProductCollection from './ProductCollection/ProductCollection'
 import OrderOverview from './OrderOverview/OrderOverview'
-import CategorySelector from './CategorySelector/CategorySelector'
+import CategoryList from '../Common/CategoryList/CategoryList'
 import Header from '../Common/Header/Header'
 import {useQuery} from "@apollo/react-hooks";
 import {GET_CURRENT_ORDER} from "../../graphql/queries"
@@ -19,7 +19,7 @@ export default function Order() {
       header={<Header/>}
       leftPanel={<OrderOverview itemList={data.currentOrder.items}/>}
       centerPanel={<ProductCollection itemList={data.currentOrder.items}/>}
-      rightPanel={<CategorySelector/>}
+      rightPanel={<CategoryList/>}
     />
   )     
 }

@@ -22,7 +22,7 @@ const useStyles = makeStyles({
     }
 });
 
-export default function CategorySelector(props) {
+export default function CategoryList(props) {
     const classes = useStyles();
 
     const client = useApolloClient();
