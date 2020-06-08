@@ -43,7 +43,7 @@ const schema = buildSchema(`
     }
     type Mutation {
         createOrder(items: [OrderItemInput]): Order
-        createProduct(name: String, price: Float, stock: Int): Product
+        createProduct(name: String, price: Float, stock: Int, categories: [ID]): Product
         createCategory(name: String): Category
     }
 `);
